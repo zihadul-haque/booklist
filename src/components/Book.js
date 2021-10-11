@@ -1,4 +1,5 @@
-const Book = (props) =>{
+import React from 'react'
+let Book = (props) =>{
     return(
         <div>
             <h3> Book:{props.bookname} </h3>

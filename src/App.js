@@ -18,21 +18,29 @@ import './App.css';
 class App extends Component {
   state={
     books:[
-      {boolname:"1984" ,writer:"George Orwell"},
-      {boolname:"The Da Vinci Code" ,writer:"Dan Brown"},
-      {boolname:"The Alchemist" ,writer:"Paulo Coelho"}
+      {bookname:"1984" ,writer:"George Orwell"},
+      {bookname:"The Da Vinci Code" ,writer:"Dan Brown"},
+      {bookname:"The Alchemist" ,writer:"Paulo Coelho"}
   ]
     
   }
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {  }
-  // }
+  changeBookState = ()=>{
+    this.setState(
+      {
+        books:[
+          {bookname:"Nineteen Eighty Four" ,writer:"George Orwell"},
+          {bookname:"The Da Vinci Code" ,writer:"Dan Brown"},
+          {bookname:"Zihad the Changer" ,writer:"It's me"}
+        ]
+      }
+    )
+  }
   render() { 
     return (  
         <div className="App">
           
             <h1>Book list</h1>
+            <button onClick={this.changeBookState}> Change state</button>
             
             <Book bookname={this.state.books[0].bookname} writer={this.state.books[0].writer}  />
             <Book bookname={this.state.books[1].bookname} writer={this.state.books[1].writer}  />

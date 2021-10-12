@@ -40,7 +40,7 @@ class App extends Component {
         <div className="App">
           
             <h1>Book list</h1>
-            <button onClick={this.changeBookState.bind(this,"Nineteen Eighty-Four")}> Change state</button>
+            <button onClick={()=>this.changeBookState("Nineteen Eighty-Four")} > Change state</button>
             
             <Book bookname={this.state.books[0].bookname} writer={this.state.books[0].writer}  />
             <Book bookname={this.state.books[1].bookname} writer={this.state.books[1].writer}  />

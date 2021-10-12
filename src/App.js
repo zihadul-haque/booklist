@@ -24,11 +24,11 @@ class App extends Component {
   ]
     
   }
-  changeBookState = ()=>{
+  changeBookState = (newBookName)=>{
     this.setState(
       {
         books:[
-          {bookname:"Nineteen Eighty Four" ,writer:"George Orwell"},
+          {bookname:newBookName ,writer:"George Orwell"},
           {bookname:"The Da Vinci Code" ,writer:"Dan Brown"},
           {bookname:"Zihad the Changer" ,writer:"It's me"}
         ]
@@ -40,11 +40,11 @@ class App extends Component {
         <div className="App">
           
             <h1>Book list</h1>
-            <button onClick={this.changeBookState}> Change state</button>
+            <button onClick={this.changeBookState.bind(this,"Nineteen Eighty-Four")}> Change state</button>
             
             <Book bookname={this.state.books[0].bookname} writer={this.state.books[0].writer}  />
             <Book bookname={this.state.books[1].bookname} writer={this.state.books[1].writer}  />
-            <Book bookname={this.state.books[2].bookname} writer={this.state.books[2].writer}  />
+            <Book bookname={this.state.books[2].bookname} writer={this.state.books[2].writer} change={this.changeBookState.bind(this,"Eighty Four")}  />
            
             
             

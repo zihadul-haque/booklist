@@ -24,16 +24,12 @@ class App extends Component {
   ]
     
   }
-  changeBookState = (newBookName)=>{
-    this.setState(
-      {
-        books:[
-          {bookname:newBookName ,writer:"George Orwell"},
-          {bookname:"The Da Vinci Code" ,writer:"Dan Brown"},
-          {bookname:"Zihad the Changer" ,writer:"It's me"}
-        ]
-      }
-    )
+  deleteBookState =(index)=>{
+    const books=this.state.books
+    books.splice(index,1)
+    this.setState({
+      books:books
+    })
   }
   changeWithInputState = event =>{
     this.setState(
@@ -54,11 +50,12 @@ class App extends Component {
       backgroundColor:"black",
       color:"white"
     };
-    const books=this.state.books.map(book => {
+    const books=this.state.books.map((book,index) => {
       return(
         <Book
         bookname={book.bookname}
-         writer={book.writer} />
+         writer={book.writer} 
+         delete={()=>this.deleteBookState("index")}/>
 
       )
        

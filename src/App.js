@@ -21,10 +21,15 @@ class App extends Component {
       {id:1, bookname:"1984" ,writer:"George Orwell"},
       {id:2, bookname:"The Da Vinci Code" ,writer:"Dan Brown"},
       {id:3, bookname:"The Alchemist" ,writer:"Paulo Coelho"}
-    ]
+    ],
+    showBooks:true
     
   }
-  
+  toggleBooks = () => {
+    this.setState({
+     showBooks :!this.state.showBooks
+    })
+  }
 
   changeWithInputState = (event,index) =>{
     const book ={
@@ -68,9 +73,9 @@ class App extends Component {
     })   
     return (  
         <div className="App">
-          
+            <button onClick={this.toggleBooks}>Toggle Books</button>
             <h1 style={style}>Book list</h1>
-            {books}
+            {this.state.showBooks ? books:null}
  
         </div> );
   }

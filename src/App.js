@@ -60,22 +60,28 @@ class App extends Component {
       backgroundColor:"black",
       color:"white"
     };
-    const books=this.state.books.map((book,index) => {
-      return(
-        <Book
-        bookname={book.bookname}
-         writer={book.writer} 
-         delete={()=>this.deleteBookState("index")}
-         key={book.id} 
-         inputName={(event)=>this.changeWithInputState(event,index)}/>
 
-      )
-    })   
+    let books =null;
+    if(this.state.showBooks){
+
+      books=this.state.books.map((book,index) => {
+        return(
+          <Book
+          bookname={book.bookname}
+           writer={book.writer} 
+           delete={()=>this.deleteBookState("index")}
+           key={book.id} 
+           inputName={(event)=>this.changeWithInputState(event,index)}/>
+  
+        )
+      }
+      )   
+    }
     return (  
         <div className="App">
             <button onClick={this.toggleBooks}>Toggle Books</button>
             <h1 style={style}>Book list</h1>
-            {this.state.showBooks ? books:null}
+            {books}
  
         </div> );
   }
